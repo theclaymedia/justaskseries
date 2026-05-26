@@ -60,7 +60,7 @@ export function PricingSection() {
             {/* Right side: Includes */}
             <div className="p-10 md:w-1/2 bg-white">
               <h3 className="text-xl font-bold text-navy-900 mb-6">
-                District pre-orders placed before May 1 include:
+                District pre-orders include:
               </h3>
 
               <ul className="space-y-5 mb-10">
