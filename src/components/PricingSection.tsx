@@ -11,8 +11,8 @@ export function PricingSection() {
             Simple, Transparent Pricing
           </h2>
           <p className="text-lg text-charcoal-600">
-            Secure your district's mentoring system before the May 1 deadline to
-            unlock exclusive bonuses.
+            Pre-order the new book today to secure the complete mentoring system
+            for your district.
           </p>
         </div>
 
