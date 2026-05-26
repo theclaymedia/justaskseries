@@ -54,7 +54,7 @@ export function MentoringSystemSection() {
             className="bg-white rounded-2xl shadow-card border border-gray-100 p-8 flex flex-col items-center">
 
               <div className={`w-14 h-14 rounded-xl flex items-center justify-center border mb-4 ${p.wrap}`}>
-                <span className="font-bold text-xl">{p.num}</span>
+                <span className="font-bold text-xl text-navy-900">{p.num}</span>
               </div>
               <h3 className="font-heading font-bold text-lg text-navy-900 mb-1">
                 {p.title}

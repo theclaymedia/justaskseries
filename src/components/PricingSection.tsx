@@ -39,7 +39,7 @@ export function PricingSection() {
               </div>
               {/* Changed text from brick to green-600 */}
               <p className="text-green-600 font-bold mb-8">
-                Pre-Order Price (through May 1)
+                Pre-Order Price
               </p>
 
               <div className="space-y-4 mb-8">
