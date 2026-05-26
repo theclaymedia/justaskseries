@@ -30,6 +30,12 @@ export function MainNavbar() {
             >
               About JAMS
             </a>
+            <Link
+              to="/mentor-launch-workshops"
+              className="text-sm font-medium text-charcoal-700 hover:text-[#004c2e] transition-colors"
+            >
+              Workshops
+            </Link>
             <a
               href="#resources"
               className="text-sm font-medium text-charcoal-700 hover:text-[#004c2e] transition-colors"
