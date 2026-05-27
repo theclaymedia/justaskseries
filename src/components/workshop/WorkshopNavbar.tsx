@@ -56,7 +56,7 @@ export function WorkshopNavbar() {
             </a>
 
             <a
-              href="https://justaskpublications.com/pre-order-book/"
+              href="https://justaskpublications.com/pre-order-contact-us/"
               className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-[#004c2e] text-white font-medium text-sm hover:bg-[#003621] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
               Pre-Order Now
             </a>
