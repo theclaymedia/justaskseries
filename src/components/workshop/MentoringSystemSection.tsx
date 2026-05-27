@@ -4,24 +4,9 @@ import { ArrowRightIcon } from 'lucide-react';
 
 export function MentoringSystemSection() {
   const parts = [
-  {
-    num: 1,
-    title: 'The Book',
-    desc: 'provides the framework.',
-    wrap: 'bg-green-50 border-green-100 text-green-700'
-  },
-  {
-    num: 2,
-    title: 'The Workshop',
-    desc: 'starts the year strong.',
-    wrap: 'bg-teal-50 border-teal-100 text-teal-600'
-  },
-  {
-    num: 3,
-    title: 'JAMS',
-    desc: 'supports ongoing implementation.',
-    wrap: 'bg-mustard-50 border-mustard-100 text-mustard-600'
-  }];
+  { num: 1, title: 'The Book', desc: 'provides the framework.' },
+  { num: 2, title: 'The Workshop', desc: 'starts the year strong.' },
+  { num: 3, title: 'JAMS', desc: 'supports ongoing implementation.' }];
 
 
   return (
@@ -53,7 +38,7 @@ export function MentoringSystemSection() {
             transition={{ duration: 0.5, delay: p.num * 0.1 }}
             className="bg-white rounded-2xl shadow-card border border-gray-100 p-8 flex flex-col items-center">
 
-              <div className={`w-14 h-14 rounded-xl flex items-center justify-center border mb-4 ${p.wrap}`}>
+              <div className="w-14 h-14 rounded-xl flex items-center justify-center border border-green-100 bg-green-50 mb-4">
                 <span className="font-bold text-xl text-navy-900">{p.num}</span>
               </div>
               <h3 className="font-heading font-bold text-lg text-navy-900 mb-1">
