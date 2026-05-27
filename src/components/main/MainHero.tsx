@@ -6,7 +6,6 @@ import {
   TargetIcon,
   ShieldCheckIcon } from
 'lucide-react';
-import { Link } from 'react-router-dom';
 
 export function MainHero() {
   return (
@@ -51,12 +50,12 @@ export function MainHero() {
                 className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-[#004c2e] text-white font-semibold text-lg hover:bg-[#004c2e] transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
                 Explore JAMS
               </a>
-              <Link
-                to="/book"
+              <a
+                href="https://justaskpublications.com/pre-order-book/"
                 className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white text-navy-900 font-semibold text-lg border-2 border-gray-200 hover:border-navy-900 hover:bg-gray-50 transition-all">
                 Pre-Order the Book
                 <ArrowRightIcon className="ml-2" size={20} />
-              </Link>
+              </a>
             </div>
           </motion.div>
 

@@ -83,7 +83,7 @@ export function PricingSection() {
               </ul>
 
               <a
-                href="#contact"
+                href="https://justaskpublications.com/pre-order-book/"
                 className="block w-full py-4 px-6 rounded-xl bg-[#004c2e] text-white text-center font-bold text-lg hover:bg-[#003621] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
                 Pre-Order the Book
               </a>

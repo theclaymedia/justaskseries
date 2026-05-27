@@ -53,7 +53,7 @@ export function WorkshopHero() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="#pricing"
+            href="https://justaskpublications.com/pre-order-book/"
             className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-[#004c2e] text-white font-semibold text-lg hover:bg-[#003621] transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
             Pre-Order the Book
             <ArrowRightIcon className="ml-2" size={20} />

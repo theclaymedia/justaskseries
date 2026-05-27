@@ -71,7 +71,7 @@ export function HeroSection() {
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-4">
               <a
-                href="#pricing"
+                href="https://justaskpublications.com/pre-order-book/"
                 className="inline-flex items-center justify-center px-10 py-4 rounded-xl bg-[#004c2e] text-white font-bold text-lg hover:bg-[#003621] transition-all shadow-lg hover:-translate-y-1"
               >
                 Pre-Order Now
