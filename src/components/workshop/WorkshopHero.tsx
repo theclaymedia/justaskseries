@@ -61,7 +61,7 @@ export function WorkshopHero() {
           <a
             href="https://justaskpublications.com/pre-order-contact-us/"
             className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white text-navy-900 font-semibold text-lg border-2 border-gray-200 hover:border-navy-900 hover:bg-gray-50 transition-all">
-            Meet the Authors
+            Reach Out To Us
           </a>
         </motion.div>
       </div>
