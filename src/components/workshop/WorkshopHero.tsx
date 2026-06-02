@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { ArrowRightIcon, BookOpenIcon } from 'lucide-react';
 
 export function WorkshopHero() {
@@ -12,7 +11,7 @@ export function WorkshopHero() {
       <div className="absolute -left-40 top-40 w-96 h-96 bg-mustard-400/10 rounded-full blur-3xl"></div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <Link to="/book" className="inline-block mb-8">
+        <a href="https://justaskpublications.com/pre-order-book/" className="inline-block mb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -21,7 +20,7 @@ export function WorkshopHero() {
             <BookOpenIcon size={16} />
             Based on the new book — <i>The Teacher Mentor's Handbook</i>
           </motion.div>
-        </Link>
+        </a>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
