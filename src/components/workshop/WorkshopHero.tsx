@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ArrowRightIcon, BookOpenIcon } from 'lucide-react';
 
 export function WorkshopHero() {
@@ -11,14 +12,16 @@ export function WorkshopHero() {
       <div className="absolute -left-40 top-40 w-96 h-96 bg-mustard-400/10 rounded-full blur-3xl"></div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-paleblue-100 text-navy-900 text-sm font-semibold mb-8 border border-paleblue-200">
-          <BookOpenIcon size={16} />
-          Based on the new book — The Teacher Mentor's Handbook
-        </motion.div>
+        <Link to="/book" className="inline-block mb-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-paleblue-100 text-navy-900 text-sm font-semibold border border-paleblue-200 hover:bg-paleblue-200 transition-colors cursor-pointer">
+            <BookOpenIcon size={16} />
+            Based on the new book — <i>The Teacher Mentor's Handbook</i>
+          </motion.div>
+        </Link>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -41,7 +44,8 @@ export function WorkshopHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-lg text-charcoal-600 mb-10 leading-relaxed max-w-2xl mx-auto">
-          Four on-demand video sessions led by authors Jeffrey Craig and Brenda
+          Four on-demand video sessions led by the authors of{' '}
+          <i>The Teacher Mentor's Handbook</i>, Jeffrey Craig and Brenda
           Kaylor — helping mentors launch the school year with confidence, build
           strong relationships from day one, and guide new teachers through their
           first year.

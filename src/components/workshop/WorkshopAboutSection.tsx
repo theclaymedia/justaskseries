@@ -66,9 +66,13 @@ export function WorkshopAboutSection() {
               </h3>
               <p className="text-charcoal-700 leading-relaxed">
                 Built to be used alongside the{' '}
-                <span className="font-semibold">
+                <a
+                  href="https://justaskmentoringseries.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-navy-900 underline decoration-2 decoration-paleblue-300 underline-offset-2 hover:decoration-navy-900 transition-colors">
                   Just ASK Mentoring Series (JAMS)
-                </span>
+                </a>
                 , providing ongoing access to videos, community, and events that
                 help mentors continue growing all year long.
               </p>

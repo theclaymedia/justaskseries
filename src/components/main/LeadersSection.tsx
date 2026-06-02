@@ -36,7 +36,7 @@ export function LeadersSection() {
             }}
             className="text-3xl md:text-4xl font-bold text-navy-900">
             
-            Meet JAMS Leaders
+            Meet the Authors and JAMS Leaders
           </motion.h2>
         </div>
 
