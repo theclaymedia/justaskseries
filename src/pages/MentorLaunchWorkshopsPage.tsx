@@ -5,6 +5,7 @@ import { WorkshopStepsSection } from '../components/workshop/WorkshopStepsSectio
 import { WorkshopAboutSection } from '../components/workshop/WorkshopAboutSection';
 import { MentoringSystemSection } from '../components/workshop/MentoringSystemSection';
 import { PricingSection } from '../components/PricingSection';
+import { WorkshopRegistrationSection } from '../components/workshop/WorkshopRegistrationSection';
 import { LeadersSection } from '../components/main/LeadersSection';
 import { WorkshopContactSection } from '../components/workshop/WorkshopContactSection';
 import { Footer } from '../components/Footer';
@@ -19,6 +20,7 @@ export function MentorLaunchWorkshopsPage() {
         <WorkshopAboutSection />
         <MentoringSystemSection />
         <PricingSection />
+        <WorkshopRegistrationSection />
         <LeadersSection />
         <WorkshopContactSection />
       </main>
