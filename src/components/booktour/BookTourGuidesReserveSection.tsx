@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { CalendarDaysIcon, WifiIcon, PlayCircleIcon, WrenchIcon } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { CalendarDaysIcon, WifiIcon, PlayCircleIcon, WrenchIcon, CheckCircle2Icon, XIcon } from 'lucide-react';
 
 const HEAD = "[font-family:'Poppins',sans-serif]";
 
@@ -27,9 +27,9 @@ const perks = [
 
 
 const sessionOptions = [
-'July 7 — The Legacy',
+'July 7 — Starting Strong',
 'July 28 — Mentor Moves That Matter',
-'July 14 — Starting Strong',
+'July 14 — The Legacy',
 'August 4 — Launching Modern Mentoring',
 'July 21 — When Things Go Wrong',
 'I plan to attend all sessions'];
@@ -40,8 +40,22 @@ const inputClass =
 const labelClass = `block text-sm font-semibold text-charcoal-800 mb-1.5 ${HEAD}`;
 
 export function BookTourGuidesReserveSection() {
+  const [showToast, setShowToast] = useState(false);
+  const timerRef = useRef(null);
+
+  // Demo only: the native "required" validation blocks submit until the form is
+  // filled, so this fires only on a completed submission. No data is sent.
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    setShowToast(true);
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => setShowToast(false), 4000);
+    form.reset();
+  };
+
   return (
-    <section id="guides" className="bg-white py-16 md:py-20">
+    <section id="guides" className="bg-white py-12 md:py-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
 
@@ -108,7 +122,7 @@ export function BookTourGuidesReserveSection() {
             </div>
 
             {/* Form */}
-            <form onSubmit={(e) => e.preventDefault()} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
                   <label className={labelClass}>Full Name*</label>
@@ -168,6 +182,32 @@ export function BookTourGuidesReserveSection() {
           </motion.div>
         </div>
       </div>
+
+      {/* Demo confirmation toast */}
+      <AnimatePresence>
+        {showToast &&
+        <motion.div
+          initial={{ opacity: 0, y: 24, scale: 0.96 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 24, scale: 0.96 }}
+          transition={{ duration: 0.25 }}
+          className="fixed bottom-6 right-6 z-[100] flex items-center gap-3 rounded-xl bg-[#254C2F] text-white pl-4 pr-3 py-4 shadow-2xl max-w-sm">
+
+            <CheckCircle2Icon size={24} className="text-white flex-shrink-0" />
+            <p className="text-sm font-medium leading-snug">
+              Your ticket has been sent to your email address.
+            </p>
+            <button
+            type="button"
+            onClick={() => setShowToast(false)}
+            aria-label="Dismiss"
+            className="ml-1 text-white/70 hover:text-white transition-colors flex-shrink-0">
+
+              <XIcon size={18} />
+            </button>
+          </motion.div>
+        }
+      </AnimatePresence>
     </section>
   );
 }

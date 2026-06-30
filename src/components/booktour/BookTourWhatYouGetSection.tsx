@@ -13,7 +13,7 @@ const items = [
 
 export function BookTourWhatYouGetSection() {
   return (
-    <section id="includes" className="bg-white py-16 md:py-20">
+    <section id="includes" className="bg-white py-10 md:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

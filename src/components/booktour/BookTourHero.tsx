@@ -12,7 +12,7 @@ const features = [
 
 export function BookTourHero() {
   return (
-    <section className="relative overflow-hidden bg-white pt-32 pb-16 lg:pt-40 lg:pb-24">
+    <section className="relative overflow-hidden bg-white pt-28 pb-10 lg:pt-32 lg:pb-12">
       {/* Soft decorative background */}
       <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-green-50 via-white to-transparent opacity-70" />
 

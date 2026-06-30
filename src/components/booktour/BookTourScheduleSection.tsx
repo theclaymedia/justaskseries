@@ -7,44 +7,44 @@ const HEAD = "[font-family:'Poppins',sans-serif]";
 const sessions = [
 {
   num: 1,
-  title: 'The Legacy',
-  desc: 'Where the vision came from and why it matters now.',
+  title: 'Starting Strong',
+  desc: 'How mentors help new teachers begin with confidence.',
   date: 'TUESDAY, JULY 7',
-  time: '1:00 PM ET / 10:00 AM PT'
+  time: '12:00 PM ET / 9:00 AM PT'
 },
 {
   num: 2,
-  title: 'Starting Strong',
-  desc: 'How mentors help new teachers begin with confidence.',
+  title: 'The Legacy',
+  desc: 'Where the vision came from and why it matters now.',
   date: 'TUESDAY, JULY 14',
-  time: '1:00 PM ET / 10:00 AM PT'
+  time: '12:00 PM ET / 9:00 AM PT'
 },
 {
   num: 3,
   title: 'When Things Go Wrong',
   desc: 'How mentors respond when challenges appear.',
   date: 'TUESDAY, JULY 21',
-  time: '1:00 PM ET / 10:00 AM PT'
+  time: '12:00 PM ET / 9:00 AM PT'
 },
 {
   num: 4,
   title: 'Mentor Moves That Matter',
   desc: 'Simple practices that make mentoring more effective.',
   date: 'TUESDAY, JULY 28',
-  time: '1:00 PM ET / 10:00 AM PT'
+  time: '12:00 PM ET / 9:00 AM PT'
 },
 {
   num: 5,
   title: 'Launching Modern Mentoring',
   desc: 'How to connect books, workshops, and JAMS into one system.',
   date: 'TUESDAY, AUGUST 4',
-  time: '1:00 PM ET / 10:00 AM PT'
+  time: '12:00 PM ET / 9:00 AM PT'
 }];
 
 
 export function BookTourScheduleSection() {
   return (
-    <section id="schedule" className="bg-white py-16 md:py-20">
+    <section id="schedule" className="bg-white py-10 md:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

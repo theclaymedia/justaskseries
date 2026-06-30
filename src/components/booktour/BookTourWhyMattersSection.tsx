@@ -5,7 +5,7 @@ const HEAD = "[font-family:'Poppins',sans-serif]";
 
 export function BookTourWhyMattersSection() {
   return (
-    <section id="why" className="bg-white py-16 md:py-20">
+    <section id="why" className="bg-white py-10 md:py-12">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
