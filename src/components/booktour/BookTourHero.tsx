@@ -1,13 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { TicketIcon, MonitorIcon, ClockIcon, ArrowRightIcon } from 'lucide-react';
+import { TicketIcon, PlayCircleIcon, ClockIcon, ArrowRightIcon } from 'lucide-react';
 
 const HEAD = "[font-family:'Poppins',sans-serif]";
 
 const features = [
 { Icon: TicketIcon, label: 'FREE' },
-{ Icon: MonitorIcon, label: 'LIVE VIRTUAL' },
-{ Icon: ClockIcon, label: '30 MINUTES' }];
+{ Icon: PlayCircleIcon, label: '5 SESSIONS' },
+{ Icon: ClockIcon, label: '30 MINUTES EACH' }];
 
 
 export function BookTourHero() {
@@ -26,7 +26,7 @@ export function BookTourHero() {
             transition={{ duration: 0.6 }}>
 
             <p className={`text-sm font-bold tracking-[0.2em] uppercase text-[#254C2F] mb-5 ${HEAD}`}>
-              Live Webinar Series
+              On-Demand Session Recordings
             </p>
 
             <h1 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold uppercase leading-[1.05] tracking-tight mb-6 ${HEAD}`}>
@@ -35,22 +35,31 @@ export function BookTourHero() {
             </h1>
 
             <p className="text-xl md:text-2xl font-semibold text-charcoal-800 mb-5">
-              Build a stronger mentoring program before the school year begins.
+              The full series, yours to watch anytime.
             </p>
 
             <p className="text-base md:text-lg text-charcoal-600 leading-relaxed mb-8 max-w-xl">
-              Join Brenda and Jeff for five free 30-minute sessions designed for
-              district leaders, mentor coordinators, principals, and lead mentors
-              who want to strengthen induction, equip mentors, and help new
-              teachers start strong.
+              Brenda and Jeff led five 30-minute sessions on building a stronger
+              mentoring program. Every session is recorded and free to watch —
+              made for district leaders, mentor coordinators, principals, and
+              lead mentors who want to strengthen induction, equip mentors, and
+              help new teachers start strong.
             </p>
 
-            <a
-              href="#reserve"
-              className={`inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#254C2F] text-white font-bold text-sm uppercase tracking-wider hover:bg-[#1a3a23] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 ${HEAD}`}>
-              Reserve Your Seat
-              <ArrowRightIcon size={18} />
-            </a>
+            <div className="flex flex-wrap items-center gap-4">
+              <a
+                href="#sessions"
+                className={`inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#254C2F] text-white font-bold text-sm uppercase tracking-wider hover:bg-[#1a3a23] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 ${HEAD}`}>
+                Watch the Sessions
+                <ArrowRightIcon size={18} />
+              </a>
+
+              <a
+                href="#connect"
+                className={`inline-flex items-center justify-center px-8 py-4 rounded-full bg-white text-[#254C2F] border-2 border-[#254C2F] font-bold text-sm uppercase tracking-wider hover:bg-[#254C2F]/5 transition-all ${HEAD}`}>
+                Talk With Our Team
+              </a>
+            </div>
 
             {/* Feature row */}
             <div className="flex flex-wrap items-center gap-x-8 gap-y-4 mt-10">
@@ -77,7 +86,7 @@ export function BookTourHero() {
 
             <img
               src="/tour/Hero_Section_Webinar_Image.png"
-              alt="Summer Modern Mentoring Tour — Live Webinar Series with Brenda Kaylor and Jeffrey Craig"
+              alt="Summer Modern Mentoring Tour session recordings with Brenda Kaylor and Jeffrey Craig"
               className="w-full h-auto object-contain drop-shadow-2xl" />
           </motion.div>
         </div>

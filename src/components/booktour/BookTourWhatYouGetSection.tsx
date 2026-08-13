@@ -8,7 +8,7 @@ const items = [
 { Icon: LightbulbIcon, color: '#2f9e44', text: 'A clear idea to strengthen mentoring' },
 { Icon: BookOpenIcon, color: '#1d4ed8', text: 'A practical Just ASK resource or reflection tool' },
 { Icon: UsersIcon, color: '#7c3aed', text: 'Guidance from experienced mentoring leaders' },
-{ Icon: ClipboardCheckIcon, color: '#166534', text: 'Next steps you can use before school begins' }];
+{ Icon: ClipboardCheckIcon, color: '#166534', text: 'Next steps you can put to work right away' }];
 
 
 export function BookTourWhatYouGetSection() {
@@ -20,7 +20,7 @@ export function BookTourWhatYouGetSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className={`text-xl md:text-2xl font-bold uppercase tracking-wide text-[#254C2F] text-center mb-12 ${HEAD}`}>
-          What You'll Get
+          What's Inside Every Session
         </motion.h2>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">

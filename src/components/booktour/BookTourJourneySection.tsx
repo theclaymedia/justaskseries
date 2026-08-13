@@ -10,8 +10,11 @@ const steps = [
   label: 'Step 1',
   color: '#254C2F',
   icon: '/tour/step1.png',
-  title: 'Summer Tour',
-  desc: 'Explore what great modern mentoring looks like.'
+  title: 'Tour Recordings',
+  desc: 'Explore what great modern mentoring looks like, one session at a time.',
+  href: '#sessions',
+  anchor: true,
+  cta: 'Watch the sessions'
 },
 {
   label: 'Step 2',
@@ -85,6 +88,12 @@ export function BookTourJourneySection() {
             if (step.href && step.external) {
               card =
               <a href={step.href} target="_blank" rel="noopener noreferrer" className={linkCls}>
+                  {cardInner}
+                </a>;
+
+            } else if (step.href && step.anchor) {
+              card =
+              <a href={step.href} className={linkCls}>
                   {cardInner}
                 </a>;
 

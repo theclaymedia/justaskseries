@@ -42,12 +42,12 @@ export function BookTourNavbar() {
             <a
               href="#includes"
               className="text-sm font-medium text-charcoal-700 hover:text-[#004c2e] transition-colors">
-              What You'll Get
+              What's Inside
             </a>
             <a
-              href="#schedule"
+              href="#sessions"
               className="text-sm font-medium text-charcoal-700 hover:text-[#004c2e] transition-colors">
-              Schedule
+              Recordings
             </a>
             <a
               href="#guides"
@@ -56,9 +56,9 @@ export function BookTourNavbar() {
             </a>
 
             <a
-              href="#reserve"
+              href="#sessions"
               className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-[#004c2e] text-white font-medium text-sm hover:bg-[#003621] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
-              Reserve Your Seat
+              Watch the Sessions
             </a>
           </div>
 

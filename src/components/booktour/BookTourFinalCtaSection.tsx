@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CalendarDaysIcon } from 'lucide-react';
+import { PlayCircleIcon } from 'lucide-react';
 
 const HEAD = "[font-family:'Poppins',sans-serif]";
 
@@ -17,21 +17,21 @@ export function BookTourFinalCtaSection() {
           {/* Icon + text */}
           <div className="flex items-center gap-5 flex-1 text-center md:text-left">
             <div className="hidden sm:flex w-14 h-14 rounded-xl bg-white/10 items-center justify-center flex-shrink-0">
-              <CalendarDaysIcon size={28} className="text-white" />
+              <PlayCircleIcon size={28} className="text-white" />
             </div>
             <div>
               <h2 className={`text-lg md:text-2xl font-bold uppercase text-white leading-snug ${HEAD}`}>
                 New Teacher Success Starts With a Mentor.
               </h2>
-              <p className="text-white/80 mt-1">Start the journey this summer.</p>
+              <p className="text-white/80 mt-1">Start the journey with session one.</p>
             </div>
           </div>
 
           {/* Button */}
           <a
-            href="#reserve"
+            href="#sessions"
             className={`flex-shrink-0 inline-flex items-center justify-center px-8 py-4 rounded-full bg-white text-[#254C2F] font-bold text-sm uppercase tracking-wider hover:bg-gray-100 transition-colors shadow-md ${HEAD}`}>
-            Reserve Your Seat Now
+            Watch the Sessions
           </a>
         </motion.div>
       </div>

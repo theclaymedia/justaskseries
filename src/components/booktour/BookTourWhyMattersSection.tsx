@@ -37,8 +37,9 @@ export function BookTourWhyMattersSection() {
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
           className="text-base md:text-lg font-bold text-charcoal-900 leading-relaxed max-w-2xl mx-auto">
-          The Summer Modern Mentoring Tour gives your team a practical path for
-          creating the kind of mentoring experience new teachers need now.
+          These recordings give your team a practical path for creating the kind
+          of mentoring experience new teachers need now — on your schedule, as
+          many times as you need it.
         </motion.p>
         </div>
       </motion.div>

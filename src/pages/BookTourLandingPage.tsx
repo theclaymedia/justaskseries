@@ -3,8 +3,8 @@ import { BookTourNavbar } from '../components/booktour/BookTourNavbar';
 import { BookTourHero } from '../components/booktour/BookTourHero';
 import { BookTourWhyMattersSection } from '../components/booktour/BookTourWhyMattersSection';
 import { BookTourWhatYouGetSection } from '../components/booktour/BookTourWhatYouGetSection';
-import { BookTourScheduleSection } from '../components/booktour/BookTourScheduleSection';
-import { BookTourGuidesReserveSection } from '../components/booktour/BookTourGuidesReserveSection';
+import { BookTourRecordingsSection } from '../components/booktour/BookTourRecordingsSection';
+import { BookTourGuidesConnectSection } from '../components/booktour/BookTourGuidesConnectSection';
 import { BookTourJourneySection } from '../components/booktour/BookTourJourneySection';
 import { BookTourFinalCtaSection } from '../components/booktour/BookTourFinalCtaSection';
 import { Footer } from '../components/Footer';
@@ -17,8 +17,8 @@ export function BookTourLandingPage() {
         <BookTourHero />
         <BookTourWhyMattersSection />
         <BookTourWhatYouGetSection />
-        <BookTourScheduleSection />
-        <BookTourGuidesReserveSection />
+        <BookTourRecordingsSection />
+        <BookTourGuidesConnectSection />
         <BookTourJourneySection />
         <BookTourFinalCtaSection />
       </main>

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CalendarDaysIcon, WifiIcon, PlayCircleIcon, WrenchIcon, CheckCircle2Icon, XIcon } from 'lucide-react';
+import { PlayCircleIcon, ClockIcon, ShareIcon, WrenchIcon, CheckCircle2Icon, XIcon } from 'lucide-react';
 
 const HEAD = "[font-family:'Poppins',sans-serif]";
 
@@ -20,26 +20,27 @@ const guides = [
 
 
 const perks = [
-{ Icon: CalendarDaysIcon, label: '5 free 30-minute sessions' },
-{ Icon: WifiIcon, label: 'Live virtual format' },
-{ Icon: PlayCircleIcon, label: 'Replay available for registrants' },
+{ Icon: PlayCircleIcon, label: '5 recorded sessions' },
+{ Icon: ClockIcon, label: 'About 30 minutes each' },
+{ Icon: ShareIcon, label: 'Watch anytime, share with your team' },
 { Icon: WrenchIcon, label: 'Practical tools & resources included' }];
 
 
-const sessionOptions = [
-'July 7 — Starting Strong',
-'July 28 — Mentor Moves That Matter',
-'July 14 — The Legacy',
-'August 4 — Launching Modern Mentoring',
-'July 21 — When Things Go Wrong',
-'I plan to attend all sessions'];
+// Ordered to read down the two columns on desktop.
+const topicOptions = [
+'Starting new teachers strong',
+'Building a mentoring system',
+'Mentor moves & practical tools',
+'Mentor Launch Workshops',
+'Supporting mentors through challenges',
+'Just ASK Mentoring Series (JAMS)'];
 
 
 const inputClass =
 'w-full px-4 py-2.5 rounded-lg border border-gray-300 bg-white text-sm text-charcoal-800 placeholder:text-charcoal-400 focus:outline-none focus:border-[#254C2F] focus:ring-1 focus:ring-[#254C2F] transition-colors';
 const labelClass = `block text-sm font-semibold text-charcoal-800 mb-1.5 ${HEAD}`;
 
-export function BookTourGuidesReserveSection() {
+export function BookTourGuidesConnectSection() {
   const [showToast, setShowToast] = useState(false);
   const timerRef = useRef(null);
 
@@ -87,26 +88,32 @@ export function BookTourGuidesReserveSection() {
             </div>
 
             <p className="text-charcoal-700 text-sm leading-relaxed mt-7">
-              Together, Brenda and Jeff share real examples, proven tools, and
-              guidance from <i>The Teacher Mentor's Handbook</i> and the Just ASK
-              Mentoring Series.
+              Across the series, Brenda and Jeff share real examples, proven
+              tools, and guidance from <i>The Teacher Mentor's Handbook</i> and
+              the Just ASK Mentoring Series.
             </p>
           </motion.div>
 
-          {/* ===== Right: Reserve Your Seat ===== */}
+          {/* ===== Right: Start a Conversation ===== */}
           <motion.div
-            id="reserve"
+            id="connect"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
             className="lg:col-span-7 scroll-mt-28 rounded-2xl bg-gray-50 border border-gray-100 p-6 md:p-10">
 
-            <h2 className={`text-xl md:text-2xl font-bold uppercase tracking-wide text-[#254C2F] text-center leading-snug mb-8 ${HEAD}`}>
-              Reserve Your Seat for the<br className="hidden sm:block" /> Summer Modern Mentoring Tour
+            <h2 className={`text-xl md:text-2xl font-bold uppercase tracking-wide text-[#254C2F] text-center leading-snug mb-3 ${HEAD}`}>
+              Bring Modern Mentoring<br className="hidden sm:block" /> to Your Team
             </h2>
 
-            {/* Perks row */}
+            <p className="text-center text-charcoal-600 text-sm leading-relaxed max-w-lg mx-auto mb-8">
+              Watched a session and want to talk it through? Tell us a little
+              about your program and Brenda or Jeff will reach out to you
+              directly.
+            </p>
+
+            {/* What's included row */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-9">
               {perks.map((p) => {
                 const { Icon } = p;
@@ -140,16 +147,30 @@ export function BookTourGuidesReserveSection() {
                   <label className={labelClass}>Email Address*</label>
                   <input type="email" required placeholder="Enter your email address" className={inputClass} />
                 </div>
+                <div>
+                  <label className={labelClass}>
+                    Phone{' '}
+                    <span className="font-normal text-charcoal-500">(optional)</span>
+                  </label>
+                  <input type="tel" placeholder="Enter your phone number" className={inputClass} />
+                </div>
+                <div>
+                  <label className={labelClass}>
+                    Best time to reach you{' '}
+                    <span className="font-normal text-charcoal-500">(optional)</span>
+                  </label>
+                  <input type="text" placeholder="e.g. weekday mornings ET" className={inputClass} />
+                </div>
               </div>
 
-              {/* Sessions checkboxes */}
+              {/* Topic checkboxes */}
               <div>
                 <label className={labelClass}>
-                  Which sessions will you attend?{' '}
+                  Which topics matter most to your program?{' '}
                   <span className="font-normal text-charcoal-500">(Select all that apply)</span>
                 </label>
                 <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5 mt-1">
-                  {sessionOptions.map((opt) =>
+                  {topicOptions.map((opt) =>
                   <label key={opt} className="flex items-center gap-2.5 text-sm text-charcoal-700 cursor-pointer">
                       <input
                       type="checkbox"
@@ -165,18 +186,18 @@ export function BookTourGuidesReserveSection() {
                 <label className={labelClass}>Questions or priorities for your mentoring program?</label>
                 <textarea
                   rows={3}
-                  placeholder="Tell us what you hope to get from the tour..."
+                  placeholder="Tell us what you're working on this year..."
                   className={`${inputClass} resize-none`} />
               </div>
 
               <button
                 type="submit"
                 className={`w-full py-4 rounded-full bg-[#254C2F] text-white font-bold text-sm uppercase tracking-wider hover:bg-[#1a3a23] transition-colors shadow-md ${HEAD}`}>
-                Reserve My Seat
+                Start the Conversation
               </button>
 
               <p className="text-center text-xs text-charcoal-400">
-                We respect your privacy. Unsubscribe anytime.
+                We respect your privacy. We'll only use this to follow up with you.
               </p>
             </form>
           </motion.div>
@@ -195,7 +216,7 @@ export function BookTourGuidesReserveSection() {
 
             <CheckCircle2Icon size={24} className="text-white flex-shrink-0" />
             <p className="text-sm font-medium leading-snug">
-              Your ticket has been sent to your email address.
+              Thanks — we've got your details and will be in touch shortly.
             </p>
             <button
             type="button"
