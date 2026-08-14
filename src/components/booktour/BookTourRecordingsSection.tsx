@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { PlayCircleIcon, ClockIcon, CalendarDaysIcon, FileTextIcon } from 'lucide-react';
 
@@ -11,33 +11,52 @@ type Session = {
   recorded: string;
   duration: string;
   videoUrl: string | null;
+  previewSrc: string | null;
+  poster: string | null;
   resourceUrl: string | null;
   resourceLabel: string;
 };
 
 // Each session renders from this array. When a recording is ready, paste its
-// embed URL into `videoUrl` (YouTube/Vimeo/Wistia "embed" src, not the watch
-// link) and the card swaps the placeholder for the real player automatically.
-// Same for `resourceUrl` — point it at the handout and the link appears.
+// Vimeo PLAYER url into `videoUrl` and the card swaps the placeholder for the
+// real player automatically. Use the player.vimeo.com form, not the vimeo.com
+// watch link:
+//
+//   https://player.vimeo.com/video/1234567890
+//   https://player.vimeo.com/video/1234567890?h=a1b2c3d4e5   <- unlisted videos
+//
+// Unlisted videos only play when the ?h= hash is included, so copy the whole
+// src out of Vimeo's own embed snippet rather than assembling it by hand.
+// Captions: upload each session's .vtt to Vimeo itself; nothing to do here.
+// `resourceUrl` works the same way — point it at the handout and the link appears.
+//
+// MOCKUP STAND-IN: until the Vimeo uploads exist, `previewSrc` plays a 60-second
+// excerpt cut from the real recording (10:00-11:00) with `poster` as its still.
+// `videoUrl` takes priority, so setting it is all that's needed to go live —
+// after that these two fields and the files in /public/tour/recordings can go.
 const sessions: Session[] = [
 {
   num: 1,
   title: 'Starting Strong',
   desc:
-  'How mentors help new teachers begin with confidence — setting the tone in the first weeks and building trust that lasts all year.',
+  'How mentors help new teachers begin with confidence — what effective mentors understand that others miss, and the most common mentoring mistakes to avoid.',
   recorded: 'July 7, 2026',
-  duration: '30 min',
+  duration: '29 min',
   videoUrl: null,
+  previewSrc: '/tour/recordings/1-starting-strong.mp4',
+  poster: '/tour/recordings/1-starting-strong.jpg',
   resourceUrl: null,
   resourceLabel: 'Session handout'
 },
 {
   num: 2,
-  title: 'The Legacy',
-  desc: 'Where the vision came from and why it matters now.',
+  title: 'Why Mentoring Matters More Than Ever',
+  desc: 'A roundtable on where this work began and why strong mentoring matters more than ever.',
   recorded: 'July 14, 2026',
-  duration: '30 min',
+  duration: '41 min',
   videoUrl: null,
+  previewSrc: '/tour/recordings/2-why-mentoring-matters.mp4',
+  poster: '/tour/recordings/2-why-mentoring-matters.jpg',
   resourceUrl: null,
   resourceLabel: 'Session handout'
 },
@@ -46,44 +65,89 @@ const sessions: Session[] = [
   title: 'When Things Go Wrong',
   desc: 'How mentors respond when challenges appear.',
   recorded: 'July 21, 2026',
-  duration: '30 min',
+  duration: '37 min',
   videoUrl: null,
+  previewSrc: '/tour/recordings/3-when-things-go-wrong.mp4',
+  poster: '/tour/recordings/3-when-things-go-wrong.jpg',
   resourceUrl: null,
   resourceLabel: 'Session handout'
 },
 {
   num: 4,
-  title: 'Mentor Moves That Matter',
-  desc: 'Simple practices that make mentoring more effective.',
+  title: 'What Great Districts Do Differently',
+  desc: 'What sets the strongest district mentoring programs apart, in conversation with the authors.',
   recorded: 'July 28, 2026',
-  duration: '30 min',
+  duration: '37 min',
   videoUrl: null,
+  previewSrc: '/tour/recordings/4-what-great-districts.mp4',
+  poster: '/tour/recordings/4-what-great-districts.jpg',
   resourceUrl: null,
   resourceLabel: 'Session handout'
 },
 {
   num: 5,
-  title: 'Launching Modern Mentoring',
-  desc: 'How to connect books, workshops, and JAMS into one system.',
+  title: 'Ask the Authors: Leading the Launch',
+  desc: 'Brenda and Jeff field questions on the new book and on mentoring in today\'s schools.',
   recorded: 'August 4, 2026',
-  duration: '30 min',
+  duration: '26 min',
   videoUrl: null,
+  previewSrc: '/tour/recordings/5-ask-the-authors.mp4',
+  poster: '/tour/recordings/5-ask-the-authors.jpg',
   resourceUrl: null,
   resourceLabel: 'Session handout'
 }];
 
 
-/** 16:9 player slot — real embed once `videoUrl` is set, placeholder until then. */
-function SessionVideo({ session }: { session: Session }) {
+/**
+ * 16:9 player slot. Prefers the Vimeo embed, falls back to the local preview
+ * clip, then to a bare placeholder if neither is set.
+ */
+function SessionVideo({ session, eager = false }: { session: Session; eager?: boolean }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  // Only gates the poster overlay before the first play — pausing later should
+  // leave the native controls reachable rather than covering them again.
+  const [started, setStarted] = useState(false);
+
   if (session.videoUrl) {
     return (
       <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-charcoal-900 ring-1 ring-black/5">
         <iframe
           src={session.videoUrl}
           title={`Session ${session.num}: ${session.title}`}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allow="autoplay; fullscreen; picture-in-picture"
           allowFullScreen
+          // Five Vimeo players on one page is a lot of third-party script, so
+          // only the featured session loads up front; the rest wait until the
+          // reader scrolls near them.
+          loading={eager ? 'eager' : 'lazy'}
           className="absolute inset-0 w-full h-full" />
+      </div>);
+
+  }
+
+  if (session.previewSrc) {
+    return (
+      <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-black ring-1 ring-black/5">
+        <video
+          ref={videoRef}
+          src={session.previewSrc}
+          poster={session.poster ?? undefined}
+          controls
+          playsInline
+          // object-contain so the one screen-share session isn't cropped.
+          preload={eager ? 'metadata' : 'none'}
+          onPlay={() => setStarted(true)}
+          className="absolute inset-0 w-full h-full object-contain" />
+
+        {!started &&
+        <button
+          type="button"
+          onClick={() => videoRef.current?.play()}
+          aria-label={`Play session ${session.num}: ${session.title}`}
+          className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors">
+            <PlayCircleIcon size={60} strokeWidth={1.5} className="text-white drop-shadow-lg" />
+          </button>
+        }
       </div>);
 
   }
@@ -159,7 +223,7 @@ export function BookTourRecordingsSection() {
           className="rounded-2xl bg-gray-50 border border-gray-100 p-5 md:p-8 mb-8">
 
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 items-center">
-            <SessionVideo session={featured} />
+            <SessionVideo session={featured} eager />
 
             <div>
               <div className="flex items-center gap-3 mb-3">

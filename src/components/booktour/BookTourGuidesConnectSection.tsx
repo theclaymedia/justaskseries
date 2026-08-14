@@ -21,7 +21,7 @@ const guides = [
 
 const perks = [
 { Icon: PlayCircleIcon, label: '5 recorded sessions' },
-{ Icon: ClockIcon, label: 'About 30 minutes each' },
+{ Icon: ClockIcon, label: '25–40 minutes each' },
 { Icon: ShareIcon, label: 'Watch anytime, share with your team' },
 { Icon: WrenchIcon, label: 'Practical tools & resources included' }];
 

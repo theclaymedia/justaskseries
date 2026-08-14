@@ -7,7 +7,7 @@ const HEAD = "[font-family:'Poppins',sans-serif]";
 const features = [
 { Icon: TicketIcon, label: 'FREE' },
 { Icon: PlayCircleIcon, label: '5 SESSIONS' },
-{ Icon: ClockIcon, label: '30 MINUTES EACH' }];
+{ Icon: ClockIcon, label: '25–40 MINUTES EACH' }];
 
 
 export function BookTourHero() {
@@ -39,7 +39,7 @@ export function BookTourHero() {
             </p>
 
             <p className="text-base md:text-lg text-charcoal-600 leading-relaxed mb-8 max-w-xl">
-              Brenda and Jeff led five 30-minute sessions on building a stronger
+              Brenda and Jeff led five sessions on building a stronger
               mentoring program. Every session is recorded and free to watch —
               made for district leaders, mentor coordinators, principals, and
               lead mentors who want to strengthen induction, equip mentors, and
